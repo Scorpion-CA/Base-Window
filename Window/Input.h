@@ -54,19 +54,19 @@ public:
 private:
 	std::unordered_map<std::string, s_HandleData> m_mHandlers;
 	std::unordered_map<std::string, s_MouseHandleData> m_mMouseHandlers;
-	POINT m_pMousePos;
+	POINT m_pMousePos = {0,0};
 };
 
 class iKeyboard : public I {
 public:
 	void AddKeyInputHandler(char VKey, std::string Name, I::Handler Func);
 	void RemoveKeyInputHandler(std::string Name);
+	void UpdateKeys();
 	bool IsKeyDown(char vKey);
 };
 
 class iMouse : public I {
 public:
-	
 	//note, for laziness reasons, and function inputted has to have 2 ints as arguments
 	void AddMouseInputHandler(int Type, std::string Name, I::MouseHandler Func);
 	void RemoveMouseInputHandler(std::string Name);

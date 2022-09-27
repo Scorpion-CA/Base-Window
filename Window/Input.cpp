@@ -43,10 +43,13 @@ void iKeyboard::RemoveKeyInputHandler(std::string Name) {
 }
 
 bool iKeyboard::IsKeyDown(char vKey) {
-	memset(m_keys, 0, sizeof(256));		//put this in onupdate eventually because this will def be a cycle hog
+	return m_keys[vKey] > 1;
+}
+
+void iKeyboard::UpdateKeys() {
+	memset(m_keys, 0, sizeof(256));
 	if (GetKeyboardState(m_keys))
-		return m_keys[vKey];
-	return false;
+		return;		//literally just here to shut the warnings up
 }
 
 void iMouse::AddMouseInputHandler(int Type, std::string Name, I::MouseHandler Func) {

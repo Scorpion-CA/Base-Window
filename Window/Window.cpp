@@ -60,10 +60,8 @@ bool Window::Init(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmdLine, int nCm
 	Window::OnCreate();
 
 	MSG msg = { };
-	while (WM_QUIT != msg.message)
-	{
-		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) > 0) //Or use an if statement
-		{
+	while (WM_QUIT != msg.message) {
+		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) > 0) {
 			TranslateMessage(&msg);
 			DispatchMessageA(&msg);
 
@@ -104,7 +102,10 @@ void Window::OnCreate() {
 }
 
 void Window::OnUpdate() {
-	
+	I::Get()->Key->UpdateKeys();
+
+	if (I::Get()->Key->IsKeyDown(VK_SPACE))
+		std::cout << "thing" << std::endl;
 }
 
 void Window::OnDestroy() {
