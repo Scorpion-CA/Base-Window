@@ -7,6 +7,7 @@
 #endif
 
 BYTE m_keys[256] = { 0 };		//this makes me sick but it won't work if I put as a member variable for some reason
+POINT GlobalMouse;				//same thing, why is the class fucked up
 
 I* I::Get() {
 	static I* self = new I;
@@ -62,9 +63,9 @@ void iMouse::RemoveMouseInputHandler(std::string Name) {
 }
 
 void I::SetMousePos(POINT in) {
-	m_pMousePos = in;
+	GlobalMouse = in;
 }
 
 POINT I::GetMousePos() {
-	return m_pMousePos;
+	return GlobalMouse;
 }
