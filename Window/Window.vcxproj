@@ -24,7 +24,7 @@
     <ProjectGuid>{e22423ce-d80e-4302-a9c2-8d49da4649b4}</ProjectGuid>
     <RootNamespace>Window</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>BedrockServerManager</ProjectName>
+    <ProjectName>Window</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
